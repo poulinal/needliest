@@ -1,0 +1,17 @@
+%%% setup initial parameters
+% 
+initial_pressure = 101325;       % in Pa (1 atm)
+initial_temperature = 300;       % in Kelvin
+valve_opening_fraction = 0.7;    % between 0 and 1
+pipe_diameter = 0.01;            % in meters
+flow_resistance = 1e5;           % in Pa·s/m³ or appropriate units
+
+
+t = [0];
+
+
+tarPSI = 100; % target resistance (in psi)
+t_tarPSI = [t,tarPSI]; % target resistance (in psi) but time matrix
+
+prevRest = 0; % previous resistance (0 
+t_prevRest = [t,prevRest];
