@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(needliest)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+
+# AVR specific compiler flags
+set(CMAKE_C_FLAGS "-mmcu=${MCU} -DF_CPU=${F_CPU} -Os -Wall -Wextra -fno-lto")
+set(CMAKE_CXX_FLAGS "-mmcu=${MCU} -DF_CPU=${F_CPU} -Os -Wall -Wextra -std=c++17 -fno-lto")
+set(CMAKE_EXE_LINKER_FLAGS "-mmcu=${MCU} -fno-lto")
+
+# Add include directory
+include_directories(include)
+
+# Add source files
+file(GLOB SOURCES "src/*.cpp")
+
+# Create executable
+add_executable(my_program ${SOURCES})

@@ -1,0 +1,25 @@
+CMakeFiles/my_program.dir/src/unoPID.cpp.obj: \
+ /Users/alexpoulin/Downloads/git/needliest/cpp/src/unoPID.cpp \
+ /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include/stdint.h \
+ /Users/alexpoulin/local/avr/avr/include/stdint.h \
+ /Users/alexpoulin/local/avr/avr/include/stdio.h \
+ /Users/alexpoulin/local/avr/avr/include/inttypes.h \
+ /Users/alexpoulin/local/avr/avr/include/bits/attribs.h \
+ /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include/stdarg.h \
+ /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include/stddef.h \
+ /Users/alexpoulin/local/avr/avr/include/math.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/io.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/sfr_defs.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/iom328p.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/portpins.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/common.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/version.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/fuse.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/lock.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/pgmspace.h \
+ /Users/alexpoulin/local/avr/avr/include/bits/lpm-elpm.h \
+ /Users/alexpoulin/local/avr/avr/include/bits/def-pgm-read.h \
+ /Users/alexpoulin/local/avr/avr/include/bits/def-pgm-read-far.h \
+ /Users/alexpoulin/local/avr/avr/include/avr/interrupt.h \
+ /Users/alexpoulin/local/avr/avr/include/util/delay.h \
+ /Users/alexpoulin/local/avr/avr/include/util/delay_basic.h

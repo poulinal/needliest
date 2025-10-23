@@ -1,0 +1,441 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineSystem.cmake:206 (message)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      The target system is: Generic -  - avr
+      The host system is: Darwin - 24.6.0 - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-gcc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+      collect2: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-gcc 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        /Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/3.27.6/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-g++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+      collect2: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:28 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-g++ 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+      
+      The CXX compiler identification is GNU, found in:
+        /Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/3.27.6/CompilerIdCXX/CMakeCXXCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:28 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-iVNQsK"
+      binary: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-iVNQsK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-iVNQsK'
+        
+        Run Build Command(s): /usr/local/Cellar/cmake/3.27.6/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2ebc6/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_2ebc6.dir/build.make CMakeFiles/cmTC_2ebc6.dir/build
+        Building C object CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj
+        /Users/alexpoulin/local/avr/bin/avr-gcc   -v -o CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj -c /usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        Reading specs from /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/device-specs/specs-avr2
+        COLLECT_GCC=/Users/alexpoulin/local/avr/bin/avr-gcc
+        Target: avr
+        Configured with: ../../source/gcc/configure --prefix=/Users/alexpoulin/local/avr --target=avr --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libcc1 --with-gnu-as --with-gnu-ld --with-dwarf2
+        Thread model: single
+        Supported LTO compression algorithms: zlib
+        gcc version 16.0.0 20251002 (experimental) (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_2ebc6.dir/'
+         /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/cc1 -quiet -v /usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeCCompilerABI.c -mn-flash=6 -mskip-bug -quiet -dumpdir CMakeFiles/cmTC_2ebc6.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mdouble=32 -mlong-double=64 -version -o /var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccaWCldb.s
+        GNU C23 (GCC) version 16.0.0 20251002 (experimental) (avr)
+        	compiled by GNU C version Apple LLVM 16.0.0 (clang-1600.0.26.6), GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+        ignoring nonexistent directory "/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/sys-include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include-fixed
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/include
+        End of search list.
+        Compiler executable checksum: 5301c9a40a728c4a876ed9ab57c2d62f
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_2ebc6.dir/'
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/as -v -mmcu=avr2 -mgcc-isr -o CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj /var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccaWCldb.s
+        GNU assembler version 2.45.50 (avr) using BFD version (GNU Binutils) 2.45.50.20251001
+        COMPILER_PATH=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/
+        LIBRARY_PATH=/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_2ebc6
+        /usr/local/Cellar/cmake/3.27.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ebc6.dir/link.txt --verbose=1
+        /Users/alexpoulin/local/avr/bin/avr-gcc  -v CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj -o cmTC_2ebc6 
+        Using built-in specs.
+        Reading specs from /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/device-specs/specs-avr2
+        COLLECT_GCC=/Users/alexpoulin/local/avr/bin/avr-gcc
+        COLLECT_LTO_WRAPPER=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/lto-wrapper
+        Target: avr
+        Configured with: ../../source/gcc/configure --prefix=/Users/alexpoulin/local/avr --target=avr --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libcc1 --with-gnu-as --with-gnu-ld --with-dwarf2
+        Thread model: single
+        Supported LTO compression algorithms: zlib
+        gcc version 16.0.0 20251002 (experimental) (GCC) 
+        COMPILER_PATH=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/
+        LIBRARY_PATH=/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2ebc6' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'cmTC_2ebc6.'
+         /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/collect2 -plugin /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so -plugin-opt=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccoa5wVA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_2ebc6 -L/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0 -L/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib CMakeFiles/cmTC_2ebc6.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+        /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+        collect2: error: ld returned 1 exit status
+        make[1]: *** [cmTC_2ebc6] Error 1
+        make: *** [cmTC_2ebc6/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:28 (project)"
+    checks:
+      - "Check for working C compiler: /Users/alexpoulin/local/avr/bin/avr-gcc"
+    directories:
+      source: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-bGqib0"
+      binary: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-bGqib0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-bGqib0'
+        
+        Run Build Command(s): /usr/local/Cellar/cmake/3.27.6/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_51c95/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_51c95.dir/build.make CMakeFiles/cmTC_51c95.dir/build
+        Building C object CMakeFiles/cmTC_51c95.dir/testCCompiler.c.obj
+        /Users/alexpoulin/local/avr/bin/avr-gcc    -o CMakeFiles/cmTC_51c95.dir/testCCompiler.c.obj -c /Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-bGqib0/testCCompiler.c
+        Linking C executable cmTC_51c95
+        /usr/local/Cellar/cmake/3.27.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51c95.dir/link.txt --verbose=1
+        /Users/alexpoulin/local/avr/bin/avr-gcc CMakeFiles/cmTC_51c95.dir/testCCompiler.c.obj -o cmTC_51c95 
+        /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+        collect2: error: ld returned 1 exit status
+        make[1]: *** [cmTC_51c95] Error 1
+        make: *** [cmTC_51c95/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:33 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-gcc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+      collect2: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:33 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-gcc 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        /Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/3.27.6/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:33 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-g++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+      collect2: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:33 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /Users/alexpoulin/local/avr/bin/avr-g++ 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+      
+      The CXX compiler identification is GNU, found in:
+        /Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/3.27.6/CompilerIdCXX/CMakeCXXCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:33 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-tWjl5P"
+      binary: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-tWjl5P"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-tWjl5P'
+        
+        Run Build Command(s): /usr/local/Cellar/cmake/3.27.6/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_64fa4/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_64fa4.dir/build.make CMakeFiles/cmTC_64fa4.dir/build
+        Building C object CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj
+        /Users/alexpoulin/local/avr/bin/avr-gcc   -v -o CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj -c /usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        Reading specs from /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/device-specs/specs-avr2
+        COLLECT_GCC=/Users/alexpoulin/local/avr/bin/avr-gcc
+        Target: avr
+        Configured with: ../../source/gcc/configure --prefix=/Users/alexpoulin/local/avr --target=avr --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libcc1 --with-gnu-as --with-gnu-ld --with-dwarf2
+        Thread model: single
+        Supported LTO compression algorithms: zlib
+        gcc version 16.0.0 20251002 (experimental) (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_64fa4.dir/'
+         /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/cc1 -quiet -v /usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeCCompilerABI.c -mn-flash=6 -mskip-bug -quiet -dumpdir CMakeFiles/cmTC_64fa4.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mdouble=32 -mlong-double=64 -version -o /var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccnXXE0V.s
+        GNU C23 (GCC) version 16.0.0 20251002 (experimental) (avr)
+        	compiled by GNU C version Apple LLVM 16.0.0 (clang-1600.0.26.6), GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+        ignoring nonexistent directory "/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/sys-include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include-fixed
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/include
+        End of search list.
+        Compiler executable checksum: 5301c9a40a728c4a876ed9ab57c2d62f
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_64fa4.dir/'
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/as -v -mmcu=avr2 -mgcc-isr -o CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj /var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccnXXE0V.s
+        GNU assembler version 2.45.50 (avr) using BFD version (GNU Binutils) 2.45.50.20251001
+        COMPILER_PATH=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/
+        LIBRARY_PATH=/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_64fa4
+        /usr/local/Cellar/cmake/3.27.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64fa4.dir/link.txt --verbose=1
+        /Users/alexpoulin/local/avr/bin/avr-gcc  -v CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj -o cmTC_64fa4 
+        Using built-in specs.
+        Reading specs from /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/device-specs/specs-avr2
+        COLLECT_GCC=/Users/alexpoulin/local/avr/bin/avr-gcc
+        COLLECT_LTO_WRAPPER=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/lto-wrapper
+        Target: avr
+        Configured with: ../../source/gcc/configure --prefix=/Users/alexpoulin/local/avr --target=avr --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libcc1 --with-gnu-as --with-gnu-ld --with-dwarf2
+        Thread model: single
+        Supported LTO compression algorithms: zlib
+        gcc version 16.0.0 20251002 (experimental) (GCC) 
+        COMPILER_PATH=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/
+        LIBRARY_PATH=/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_64fa4' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'cmTC_64fa4.'
+         /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/collect2 -plugin /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so -plugin-opt=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccJEx9XM.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_64fa4 -L/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0 -L/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib CMakeFiles/cmTC_64fa4.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+        /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+        collect2: error: ld returned 1 exit status
+        make[1]: *** [cmTC_64fa4] Error 1
+        make: *** [cmTC_64fa4/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:33 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-rtV1G7"
+      binary: "/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-rtV1G7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/alexpoulin/Downloads/git/needliest/cpp/build/CMakeFiles/CMakeScratch/TryCompile-rtV1G7'
+        
+        Run Build Command(s): /usr/local/Cellar/cmake/3.27.6/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f404b/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_f404b.dir/build.make CMakeFiles/cmTC_f404b.dir/build
+        Building CXX object CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj
+        /Users/alexpoulin/local/avr/bin/avr-g++   -v -o CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        Reading specs from /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/device-specs/specs-avr2
+        COLLECT_GCC=/Users/alexpoulin/local/avr/bin/avr-g++
+        Target: avr
+        Configured with: ../../source/gcc/configure --prefix=/Users/alexpoulin/local/avr --target=avr --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libcc1 --with-gnu-as --with-gnu-ld --with-dwarf2
+        Thread model: single
+        Supported LTO compression algorithms: zlib
+        gcc version 16.0.0 20251002 (experimental) (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_f404b.dir/'
+         /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/cc1plus -quiet -v /usr/local/Cellar/cmake/3.27.6/share/cmake/Modules/CMakeCXXCompilerABI.cpp -mn-flash=6 -mskip-bug -quiet -dumpdir CMakeFiles/cmTC_f404b.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mdouble=32 -mlong-double=64 -version -mn-flash=6 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o /var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccr4pigF.s
+        GNU C++17 (GCC) version 16.0.0 20251002 (experimental) (avr)
+        	compiled by GNU C version Apple LLVM 16.0.0 (clang-1600.0.26.6), GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+        ignoring nonexistent directory "/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/include/c++/16.0.0"
+        ignoring nonexistent directory "/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/include/c++/16.0.0/avr"
+        ignoring nonexistent directory "/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/include/c++/16.0.0/backward"
+        ignoring nonexistent directory "/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/sys-include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/include-fixed
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/include
+        End of search list.
+        Compiler executable checksum: 70d689fec15b577442c96fd1741fdddc
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_f404b.dir/'
+         /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/as -v -mmcu=avr2 -mgcc-isr -o CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccr4pigF.s
+        GNU assembler version 2.45.50 (avr) using BFD version (GNU Binutils) 2.45.50.20251001
+        COMPILER_PATH=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/
+        LIBRARY_PATH=/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_f404b
+        /usr/local/Cellar/cmake/3.27.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f404b.dir/link.txt --verbose=1
+        /Users/alexpoulin/local/avr/bin/avr-g++  -v CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f404b 
+        Using built-in specs.
+        Reading specs from /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/device-specs/specs-avr2
+        COLLECT_GCC=/Users/alexpoulin/local/avr/bin/avr-g++
+        COLLECT_LTO_WRAPPER=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/lto-wrapper
+        Target: avr
+        Configured with: ../../source/gcc/configure --prefix=/Users/alexpoulin/local/avr --target=avr --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libcc1 --with-gnu-as --with-gnu-ld --with-dwarf2
+        Thread model: single
+        Supported LTO compression algorithms: zlib
+        gcc version 16.0.0 20251002 (experimental) (GCC) 
+        COMPILER_PATH=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/libexec/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/
+        LIBRARY_PATH=/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/:/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f404b' '-mdouble=32' '-mlong-double=64' '-specs=device-specs/specs-avr2' '-dumpdir' 'cmTC_f404b.'
+         /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/collect2 -plugin /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so -plugin-opt=/Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/9v/hlrr6pv51bv0wc4ddcq4b7d00000gn/T//ccTmf5hA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc -o cmTC_f404b -L/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0 -L/Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/lib CMakeFiles/cmTC_f404b.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group
+        /Users/alexpoulin/local/avr/lib/gcc/avr/16.0.0/../../../../avr/bin/ld: /Users/alexpoulin/local/avr/libexec/gcc/avr/16.0.0/liblto_plugin.so: error loading plugin: dlsym(0x721c7bd0, _onload): symbol not found
+        collect2: error: ld returned 1 exit status
+        make[1]: *** [cmTC_f404b] Error 1
+        make: *** [cmTC_f404b/fast] Error 2
+        
+      exitCode: 2
+...
