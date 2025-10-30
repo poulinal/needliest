@@ -1,5 +1,37 @@
 // AP 2025
-// Main file for AVR PID Controller project
+// Main file for AVR (Uno) PID Controller project
+
+/**
+ * To run:
+ * Build command:
+    /Users/alexpoulin/local/avr/bin/avr-g++ \
+    -mmcu=atmega328p \
+    -DF_CPU=16000000UL \
+    -Os -Wall -Wextra \
+    -std=gnu++17 \
+    -fno-lto \
+    -I cpp/include \
+    -I cpp/src \
+    -I cpp/src/utilities \
+    -o build/main.elf \
+    cpp/src/main.cpp \
+    cpp/src/pidController.cpp \
+    cpp/src/unoController.cpp \
+    cpp/src/utilities/avr_wiring.cpp \
+    cpp/src/utilities/writeAvr.cpp
+
+ * Flash command:
+    /Users/alexpoulin/local/avr/bin/avrdude \
+      -c arduino -p atmega328p \
+      -P /dev/cu.usbserial-DN06A5F2 \
+      -b 115200 \
+      -D \
+      -U flash:w:build/main.hex:i
+
+ * Serial monitor command:
+    screen /dev/cu.usbserial-DN06A5F2 115200
+ * To exit screen: Ctrl-A K
+ */
 
 #include "IPid.h"
 #include "pidController.cpp"

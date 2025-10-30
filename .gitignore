@@ -1,1 +1,5 @@
 *external/build/*
+*.elf
+*.hex
+*.o
+*.lst
