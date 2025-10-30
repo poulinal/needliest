@@ -23,9 +23,9 @@ public:
         // }
     }
 
-    float pidController(float SP, float MV) override {
+    float pidController(float MV) override {
         // Calculate error
-        int error = (int)(SP - MV);
+        int error = (int)(setpoint - MV);
 
         // Proportional term
         int pterm = k_p * error;
@@ -56,8 +56,13 @@ public:
         k_d = d;
     }
 
-    void updateSetpoint(int newSetpoint) override {
+    void updateSetpoint(double newSetpoint) override {
         setpoint = newSetpoint;
+    }
+
+    void updateMinMax(float newMin, float newMax) {
+        A_min = newMin;
+        A_max = newMax;
     }
 
     float translatePIDOutput(float rawOutput) override {

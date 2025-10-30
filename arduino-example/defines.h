@@ -9,4 +9,9 @@
 #undef F_CPU
 #define F_CPU 16000000UL
 
+// Override BAUD rate if not already defined
+#ifndef BAUD
+#define BAUD 115200
+#endif // BAUD
+
 #endif // DEFINES_H

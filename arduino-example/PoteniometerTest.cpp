@@ -65,7 +65,7 @@ static void uart_put_fixed2(double v);
 #define UBRR_VALUE ((F_CPU/16/BAUD) - 1)
 #endif
 
-// Define ADEN if not already defined (AVR ATmega328P: bit 7 in ADCSRA)
+// Define ADEN if not already defined (AVR ATmexga328P: bit 7 in ADCSRA)
 #ifndef ADEN
 #define ADEN 7
 #endif
@@ -102,7 +102,7 @@ static void uart_put_fixed2(double v);
 
 // If PORTB is not defined, define it explicitly for ATmega328P
 #ifndef PORTB
-#define PORTB (*(volatile uint8_t*)0x25)
+#defixxwne PORTB (*(volatile uint8_t*)0x25)
 #endif
 
 // If PORTD is not defined, define it explicitly for ATmega328P
@@ -152,6 +152,7 @@ float d_min = 0.05; // max allowed diff. from set angle and position before moto
 
 float current = 0; // current position in # of CW rotations from closed position
 float delta = 0; // difference between current and set position
+static double t = 0.0;
 
 #define INPUT 0
 #define OUTPUT 1
@@ -178,8 +179,6 @@ void pinMode(uint8_t pin, uint8_t mode) {
 
 uint16_t analogRead(uint8_t pin) {
     // Select ADC channel (assuming pin is A0-A5 mapped to 0-5)
-    ADMUX = (1 << REFS0) | (pin & 0x07); // AVcc reference, channel select
-    ADCSRA |= (1 << ADEN); // Enable ADC
     ADCSRA |= (1 << ADSC); // Start conversion
     while (ADCSRA & (1 << ADSC)); // Wait for conversion to finish
     return ADCW;
@@ -192,6 +191,10 @@ void setup() {
     pinMode(PotPin, INPUT);
     // Initialize UART for printing
     uart_init();
+    
+    // Set AVcc reference and enable ADC in setup
+    ADMUX = (1 << REFS0) | (PotPin & 0x07); // Set reference (REFS0) and channel (A5=5)
+    ADCSRA |= (1 << ADEN); // Enable ADC
 }
 
 // Arduino-like map function implementation
@@ -202,7 +205,9 @@ long map(long x, long in_min, long in_max, long out_min, long out_max) {
 void loop() {
     // Serial.print("Current Position = ");
     // Serial.print(current); // display current angle
-    uint16_t adc = analogRead(PotPin);
+    // uint16_t adc = analogRead(PotPin);
+    // set adc to a sin curve where its 3 *(sin(t/3)+1)
+    uint16_t adc = (uint16_t)(512.0 * (sin(4 * t) + 1.0));
     //     long mapped = map(adc, 0, 1023, 0, 600);
     // double Set = 0.01 * (double)mapped; // read voltage from POT, map voltage to 100 steps per revolution, 6 revolutions
     // Direct floating-point mapping: ADC 0..1023 -> Set 0.0..6.0 rotations
@@ -220,7 +225,9 @@ void loop() {
     uart_puts("\r\n");
 
     // delay
-    _delay_ms(100);
+    // _delay_ms(100);
+    // _delay_ms(1);
+    t += 0.005;
 }
 
 void delayMicroseconds(unsigned int us) {
@@ -265,25 +272,30 @@ float setAngle(double current, double set) { // measured in # of CW rotations fr
         return (float)current;
     }
 
-    // Compute period per step in microseconds so N pulses complete in dt seconds
-    double period_us = (dt * 1.0) / N; // microseconds per step (approx)
-    // Enforce minimum period so pulses aren't instantaneous
-    const double min_period_us = 50.0; // 50 us minimum period (20 kHz). Tune down if needed.
-    if (period_us < min_period_us) period_us = min_period_us;
-    unsigned int pulse_high_us = 5; // HIGH time per pulse in us
-    if (pulse_high_us >= (unsigned int)period_us) pulse_high_us = (unsigned int)(period_us / 2);
-    unsigned int low_time_us = (unsigned int)period_us - pulse_high_us;
-    if (low_time_us < 1) low_time_us = 1;
+    // Change in setAngle:
+    // const double step_period_us = 1000.0; // 1000 us per step = 1 kHz max speed
+
+    // // Instead, set the actual period to the fixed speed you want
+    // double period_us = step_period_us; // Use the fixed step period
+
+    // // Recalculate pulse timings based on the fixed period
+    // unsigned int pulse_high_us = 5; // HIGH time per pulse in us
+    // if (pulse_high_us >= (unsigned int)period_us) pulse_high_us = (unsigned int)(period_us / 2);
+    // unsigned int low_time_us = (unsigned int)period_us - pulse_high_us;
+    // if (low_time_us < 1) low_time_us = 1;
+
+    double Delay = dt * 1000000/N;
 
     float new_pos = (float)current;
 
     // Diagnostics
     uart_puts("N:"); uart_put_fixed2(N); uart_puts(" ");
-    uart_puts("Period_us:"); uart_put_fixed2(period_us); uart_puts(" ");
+    // uart_puts("Period_us:"); uart_put_fixed2(period_us); uart_puts(" ");
+    uart_puts("Delay_us:"); uart_put_fixed2(Delay); uart_puts(" ");
 
     if (fabs(local_delta) <= d_min && set != 0) {
         uart_puts("No Move\r\n");
-        delayMicroseconds((unsigned int)(period_us * N));
+        delayMicroseconds(Delay*N);
         return new_pos;
     } else if (local_delta > 0) {
         uart_puts("Move CW\r\n");
@@ -298,9 +310,11 @@ float setAngle(double current, double set) { // measured in # of CW rotations fr
     // Send N pulses with explicit HIGH/LOW timing
     for (int i = 0; i < (int)N; i++) {
         digitalWrite(Pulse, HIGH);
-        delayMicroseconds(pulse_high_us);
+        // delayMicroseconds(pulse_high_us);
+        delayMicroseconds((unsigned int)Delay / 8);
         digitalWrite(Pulse, LOW);
-        delayMicroseconds(low_time_us);
+        // delayMicroseconds(low_time_us);
+        delayMicroseconds((unsigned int)Delay / 8);
     }
 
     // After pulses complete, update reported position
