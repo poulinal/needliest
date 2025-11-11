@@ -1,27 +1,23 @@
 // AP 2025
 
+#ifndef IPID_H
+#define IPID_H
+
 class IPid {
-private:
-    int Last_error = 0;
-    int Last_iterm = 0;
-
-    int needleValveLowerBound = 0; // in radians
-    int needleValveUpperBound = 90; // in radians
-
 public:
-    const int k_i;
-    const int k_p;
-    const int k_d;
-    int setpoint = 4136854; // in Pa, 600 psi
-
-
     virtual ~IPid() = default; // Virtual destructor
 
-    virtual float pidController(float SP, float MV); // gets a raw output from the PID controller
 
-    virtual void updateConstants(int p, int i, int d); // updates the PID constants
 
-    virtual void updateSetpoint(int newSetpoint); // updates the setpoint
+    virtual float pidController(float MV) = 0; // gets a raw output from the PID controller
 
-    virtual float translatePIDOutput(float rawOutput); // translates the raw output to something the system can use
+    virtual void updateConstants(int p, int i, int d) = 0; // updates the PID constants
+
+    virtual void updateSetpoint(double newSetpoint) = 0; // updates the setpoint
+
+    virtual void updateMinMax(float newMin, float newMax) = 0; // updates the min and max output range
+
+    virtual float translatePIDOutput(float rawOutput) = 0; // translates the raw output to something the system can use
 };
+
+#endif // IPID_H

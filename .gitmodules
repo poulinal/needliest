@@ -1,0 +1,12 @@
+[submodule "avr-libc"]
+	path = external/source/avr-libc
+	url = https://github.com/avrdudes/avr-libc.git
+[submodule "external/binutils-gdb"]
+	path = external/source/binutils-gdb
+	url = https://github.com/bminor/binutils-gdb.git
+[submodule "external/gcc"]
+	path = external/source/gcc
+	url = https://github.com/gcc-mirror/gcc.git
+[submodule "external/source/avrdude"]
+	path = external/source/avrdude
+	url = https://github.com/avrdudes/avrdude.git

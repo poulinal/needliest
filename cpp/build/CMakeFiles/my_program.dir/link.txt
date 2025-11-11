@@ -1,0 +1,1 @@
+/Users/alexpoulin/local/avr/bin/avr-g++ -mmcu=atmega328p -DF_CPU=16000000UL -Os -Wall -Wextra -std=c++17 -fno-lto -mmcu=atmega328p -fno-lto CMakeFiles/my_program.dir/src/main.cpp.obj CMakeFiles/my_program.dir/src/pidController.cpp.obj CMakeFiles/my_program.dir/src/unoPID.cpp.obj -o my_program 
