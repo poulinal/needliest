@@ -1,0 +1,2 @@
+[console_scripts]
+labjack-write = labjackWrite.main:main

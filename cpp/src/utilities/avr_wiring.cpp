@@ -1,5 +1,5 @@
-#include "defineConstants.h"
-#include "defines.h"
+// #include "defineConstants.h"
+// #include "defines.h"
 
 // Ensure MCU symbol so <avr/io.h> exposes ATmega328P register names to IntelliSense/build
 #ifndef __AVR_ATmega328P__

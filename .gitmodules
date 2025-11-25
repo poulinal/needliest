@@ -10,3 +10,6 @@
 [submodule "external/source/avrdude"]
 	path = external/source/avrdude
 	url = https://github.com/avrdudes/avrdude.git
+[submodule "external/source/exodriver"]
+	path = external/source/exodriver
+	url = https://github.com/labjack/exodriver.git

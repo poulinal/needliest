@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: labjack-writer
+Version: 0.1.0
+Summary: Send LabJack AIN0 readings to serial for AVR
+Author-email: you <you@example.com>
+Requires-Dist: labjack-ljm
+Requires-Dist: pyserial
