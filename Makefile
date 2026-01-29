@@ -6,7 +6,9 @@ AVRDUDE := /Users/alexpoulin/local/avr/bin/avrdude
 MCU := atmega328p
 PORT ?= /dev/cu.usbserial-DN06A5F2
 
-CFLAGS := -mmcu=$(MCU) -DF_CPU=16000000UL -DBAUD=9600 -Os -Wall -Wextra -std=gnu++17 -fno-lto \
+# CFLAGS := -mmcu=$(MCU) -DF_CPU=16000000UL -DBAUD=9600 -Os -Wall -Wextra -std=gnu++17 -fno-lto \
+
+CFLAGS := -mmcu=$(MCU) -DF_CPU=16000000UL -DBAUD=115200 -Os -Wall -Wextra -std=gnu++17 -fno-lto \
 		  -I cpp/include -I cpp/src -I cpp/src/utilities -DUART_DEBUG
 
 SRCS := cpp/src/main.cpp \

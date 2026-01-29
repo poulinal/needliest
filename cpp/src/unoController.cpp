@@ -44,7 +44,7 @@ void UnoController::setup() {
     pinMode(Pulse, OUTPUT);
     pinMode(PotPin, INPUT);
     // Initialize UART for printing
-    uart_init();
+    // uart_init();
 
     // Set AVcc reference and enable ADC in setup
     ADMUX = (1 << REFS0) | (PotPin & 0x07); // Set reference (REFS0) and channel (A5=5)
@@ -97,6 +97,12 @@ float UnoController::setAngle(double current, double set) { // measured in # of 
 
     // After pulses complete, update reported position
     new_pos = (float)set;
+
+
+
+    _delay_ms(5000);
+
+
     return new_pos;
 }
 

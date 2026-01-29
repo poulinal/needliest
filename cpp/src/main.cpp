@@ -13,6 +13,14 @@
     /Users/alexpoulin/local/avr/bin/avrdude -c arduino -p atmega328p -P /dev/cu.usbserial-DN06A
 5F2 -b 115200 -D -U flash:w:build/main.hex:i
 
+
+
+
+ * simplified now in root needliest folder just:
+    make all
+    make flash
+
+
  * Serial monitor command:
     screen /dev/cu.usbserial-DN06A5F2 115200
  * To exit screen: Ctrl-A K
@@ -58,9 +66,11 @@ PY
 #include "writeAvr.h"
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/wdt.h>
 // #include <memory>
 #define F_CPU 16000000UL
-#define BAUD 9600  // or 115200, doesn't matter
+// #define BAUD 9600  // or 115200, doesn't matter
+// #define BAUD 115200
 #include <util/setbaud.h>
 
 
@@ -82,9 +92,12 @@ static UnoController unoControllerObj;
 static IUnoController* unoController = &unoControllerObj;
 
 double current = 0;
+int labjack_fail_count = 0;
 
 void setup() {
-    double setpoint = 3; // Example setpoint value (in psi)
+    // UART already initialized in main() - don't reinitialize
+    
+    double setpoint = 1.0; // Example setpoint value (in psi)
     pidController->updateSetpoint(setpoint);
     uart_puts("Setpoint: "); uart_put_fixed2(setpoint); uart_puts("\r\n");
 
@@ -96,88 +109,71 @@ void setup() {
     // DDRB |= (1 << DDB5);
 }
 
-// Read two comma-separated voltages from UART into v1 and v2.
+// Read voltages from UART into v1 and v2.
 // Returns 1 on success (values filled), 0 if no complete line or parse failure.
 bool getLabJackVoltages(double *v1, double *v2) {
     char linebuf[48];
     linebuf[0] = '\0';  // Initialize buffer
-    // uart_puts("Getting linebuf: "); uart_ptchars(linebuf); uart_puts("\r\n");
-    // Avoid blocking if no data available
+    
+    // Return immediately if no data available (non-blocking)
     if (!uart_data_available()) return false;
-    // uart_puts("Getting linebuf2: "); uart_putchars(linebuf); uart_puts("\r\n");
-    // NO delay - read immediately while timing is still aligned
+    
+    // Try to read a line
     int len = uart_readline(linebuf, sizeof(linebuf));
-    // uart_puts("Getting linebuf3: "); uart_putchars(linebuf); uart_puts("\r\n");
-    // uart_puts("Got from serial (len="); 
-    char lenbuf[8]; 
-    // uart_puts(uint_to_str((unsigned long)len, lenbuf));
-    // uart_puts("): '"); uart_puts(linebuf); uart_puts("'\r\n");
-    if (len <= 0) return false;
-    // if (parse_two_ascii_floats(linebuf, v1, v2)) {
-    //     uart_puts("RX v1: "); uart_put_fixed2(*v1); uart_puts(" v2: "); uart_put_fixed2(*v2); uart_puts("\r\n");
-    //     return true;
-    // }
-    // Single float parse (upstream only)
+    if (len <= 0) return false;  // No complete line yet
+    
+    // Debug: print raw received string
+    uart_puts("RAW RX (len=");
+    char lenbuf[8];
+    uart_puts(uint_to_str((unsigned long)len, lenbuf));
+    uart_puts("): '");
+    uart_putchars(linebuf);
+    uart_puts("'\r\n");
+    
+    // Try to parse two comma-separated floats first
+    if (parse_two_ascii_floats(linebuf, v1, v2)) {
+        uart_puts("RX v1: "); uart_put_fixed2(*v1); uart_puts(" v2: "); uart_put_fixed2(*v2); uart_puts("\r\n");
+        return true;
+    }
+    
+    // If that fails, try parsing just the first float
     *v1 = parse_ascii_float(linebuf);
-    uart_puts("RX v1: "); uart_put_fixed2(*v1); uart_puts("\r\n");
+    *v2 = 0.0;  // Default v2 to 0
+    uart_puts("RX v1: "); uart_put_fixed2(*v1); uart_puts(" (single value, parse_two_ascii_floats failed)\r\n");
     return true;
-    // uart_puts("RX parse error. Got: '"); uart_puts(linebuf); uart_puts("'\r\n");
-    // return false;
 }
 
 void loop() {
-    // Read potentiometer on A5 (same pin used by UnoController)
-    // uint16_t adc = unoController->pneumaticReadingRaw();
-    double upstread = 0.0;
+    double upstream = 0.0;
     double downstream = 0.0;
-    uart_puts("Reading LabJack...\r\n");
-    bool readBool = getLabJackVoltages(&upstread, &downstream);
+    bool readBool = getLabJackVoltages(&upstream, &downstream);
+    uart_puts("Read voltages: ");
+    uart_puts("Upstream: "); uart_put_fixed2(upstream); uart_puts(" V, ");
+    uart_puts("Downstream: "); uart_put_fixed2(downstream); uart_puts(" V\r\n");
     if (!readBool) {
-        // adc and adc2 now contain the two voltages read from the desktop sender
-        // uart_puts("LabJack read failed\r\n");
-        // No data this cycle — try again on the next loop iteration.
-        uart_puts("LabJack read failed, got: "); uart_put_fixed2((double)upstread); uart_puts(", "); uart_put_fixed2((double)downstream); uart_puts(" retrying...\r\n");
-        _delay_ms(50);
-        return;
+        uart_puts("No valid labjack data\r\n");
     }
-    uart_puts("Reading upstream: "); uart_put_fixed2((double)upstread); uart_puts(", "); uart_put_fixed2((double)downstream); uart_puts("\r\n");
-    double rotations = unoController->pneumaticReadingRotation(); //alternatively we can get a rotation reading directly from A5 (like in potentiometer test)
-    uart_puts("...... ADC:"); uart_put_fixed2((double)upstread); uart_puts(", "); uart_put_fixed2((double)downstream); uart_put_fixed2((double)rotations); uart_puts("\r\n");
-    // uart_puts("...... LabJacks:"); uart_put_fixed2((double)labjackController->getVoltageAINO()); uart_puts("\r\n");
-    // uart_puts("...... test: "); uart_put_fixed2((double)0); uart_puts("\r\n");
 
-    // // Compute PID output: MV (measured value)
-    float rawPid = pidController->pidController((float)downstream);
-    float pidOutput = pidController->translatePIDOutput(rawPid); //translate such that is it between 0 and 6 rotations (physical needle valve bounds)
-
-    // // Command the controller to move toward pidOutput
-    uart_puts("setting angle: "); uart_put_fixed2((double)pidOutput); uart_puts("\r\n");
-    current = unoController->setAngle(current, pidOutput);
-
-    // // _delay_ms(100); //safety delay for now
 }
 
 
 // Simple test main function (minimal, compilable example)
 int main() {
-    // Objects are statically allocated above. UnoController constructor
-    // calls setup() internally; however we still call the application
-    // setup() to configure the PID setpoint and ranges.
-    _delay_ms(5000); // wait for things to settle
-
-    // Call application setup to initialize PID ranges, UART, and configure LED pin
+    // Disable watchdog timer
+    wdt_disable();
+    
+    // Initialize UART FIRST before any delays to debug where we're hanging
+    uart_init();
+    uart_puts("\r\n=== MAIN STARTED ===\r\n");
+    
+    uart_puts("Before setup\r\n");
     setup();
+    uart_puts("After setup\r\n");
 
+    uart_puts("Entering main loop...\r\n");
     while (1) {
-        uart_puts("Starting loop\r\n");
-        // Perform a visible blink: LED on 300ms, off 300ms
-        // PORTB |= (1 << PORTB5);
-        // _delay_ms(300);
-        // PORTB &= ~(1 << PORTB5);
-        // _delay_ms(300);
-        _delay_ms(100);
+        _delay_ms(300);  // Wait 300ms between reads (Python sends at 200ms, so we'll catch them)
         loop();
-        _delay_ms(100);
     }
     return 0;
 }

@@ -105,7 +105,7 @@ int uart_getc_blocking(void) {
     // Check and clear any UART errors (frame error, data overrun, parity error)
     uint8_t status = UCSR0A;
     uint8_t data = UDR0;
-    uart_puts("getc_blocking, data: "); uart_putc(data); // Echo back received character
+    // uart_puts("getc_blocking, data: "); uart_putc(data); // Echo back received character
     if (status & ((1 << FE0) | (1 << DOR0) | (1 << UPE0))) {
         // Error occurred - return a marker or just the data (errors cleared by reading UDR0)
         return (int)data; // or return -1 to signal error
@@ -143,10 +143,10 @@ int uart_readline(char *buf, int maxlen) {
     while (uart_data_available()) {
         int c = uart_getc_blocking();
         if (c == '\r') continue;
-        #ifdef UART_DEBUG
-        uart_puts("RXB: "); uart_put_hex8((uint8_t)c); uart_puts(" plen=");
-        char tmpbuf[8]; uart_puts(uint_to_str((unsigned long)plen, tmpbuf)); uart_puts("\r\n");
-        #endif
+        // #ifdef UART_DEBUG
+        // uart_puts("RXB: "); uart_put_hex8((uint8_t)c); uart_puts(" plen=");
+        // char tmpbuf[8]; uart_puts(uint_to_str((unsigned long)plen, tmpbuf)); uart_puts("\r\n");
+        // #endif
         if (plen < PBUF_SIZE - 1) {
             pbuf[plen++] = (char)c;
         } else {

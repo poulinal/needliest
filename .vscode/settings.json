@@ -4,6 +4,9 @@
         "cstdio": "cpp",
         "format": "cpp",
         "*.inc": "cpp",
-        "*.x": "cpp"
+        "*.x": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "random": "cpp"
     }
 }

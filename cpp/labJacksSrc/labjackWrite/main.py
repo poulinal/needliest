@@ -66,11 +66,29 @@ def read_labjack():
             except Exception:
                 handle = ljm.open("T7", "USB", "ANY")
 
+            # Optionally set the input range for AIN0 before reading.
+            # Typical values: 10.0 for +/-10V, 1.0 for +/-1V, etc.
+            # If the LJM binding supports eWriteName, use it to set AIN0_RANGE.
+            try:
+                AIN0_RANGE = 10.0
+                ljm.eWriteName(handle, "AIN0_RANGE", float(AIN0_RANGE))
+            except Exception:
+                # If eWriteName isn't available or fails, continue without setting range
+                pass
+
             raw0 = ljm.eReadName(handle, "AIN0")
             raw2 = ljm.eReadName(handle, "AIN2")
         else:
             # fall back to function imports
             handle = ljm_open("T7", "USB", "ANY")
+            # Attempt to set range if function available in this import style
+            try:
+                # Some wrappers may expose eWriteName at module level
+                from labjack.ljm import eWriteName as _eWriteName
+                AIN0_RANGE = 10.0
+                _eWriteName(handle, "AIN0_RANGE", float(AIN0_RANGE))
+            except Exception:
+                pass
             raw0 = eReadName(handle, "AIN0")
             raw2 = eReadName(handle, "AIN2")
 
@@ -97,6 +115,12 @@ def read_labjack():
                 ljm.close(handle)
         except Exception:
             pass
+        
+def read_fake_labjack():
+    import random
+    v0 = random.uniform(2.0, 3.0)
+    v2 = random.uniform(2.0, 3.0)
+    return v0, v2
 
 def main():
     def open_serial():
@@ -114,24 +138,22 @@ def main():
         while True:
             # read from labjack (use labjack-ljm API)
             try:
-                v0, v2 = read_labjack()
+                # v0, v2 = read_labjack()
+                v0, v2 = read_fake_labjack()
+                print(f"LabJack read: v0={v0:.3f}, v2={v2:.3f}")
             except Exception as e:
                 print("LabJack read error:", e)
                 v0, v2 = 0.0, 0.0
 
             # line = f"{v0:.3f},{v2:.3f}\n"
-            line = f"{v0:.3f}\n"
+            line = f"{v0:.3f},{v2:.3f}\n"
 
             print("Sending line:", line.strip())
             # Attempt to write; on failure try to reopen the port and continue
             try:
-                # ser.write(line.encode('ascii'))
-                # ser.flush()
-                # print("sent:", line.strip())
-                for byte in line.encode('ascii'):
-                    ser.write(bytes([byte]))
-                    ser.flush()
-                    time.sleep(0.214)  # 10ms between bytes
+                ser.write(line.encode('ascii'))
+                ser.flush()
+                print("sent:", line.strip())
             except Exception as e:
                 print("Serial write failed:", e)
                 try:
