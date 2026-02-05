@@ -107,6 +107,14 @@ void setup() {
     uart_puts("Output Range: "); uart_put_fixed2(min); uart_puts(" to "); uart_put_fixed2(max); uart_puts("\r\n");
     // // Configure built-in LED (Arduino UNO digital pin 13 / PB5) as output
     // DDRB |= (1 << DDB5);
+
+    uart_puts("\r\n--- DEBUG TEST START ---\r\n");
+    double test_val = parse_ascii_float("4.32");
+    uart_puts("Test '4.32' -> "); uart_put_fixed2(test_val); uart_puts("\r\n");
+    
+    double test_val2 = parse_ascii_float("4.32 0.00");
+    uart_puts("Test '4.32 0.00' -> "); uart_put_fixed2(test_val2); uart_puts("\r\n");
+    uart_puts("--- DEBUG TEST END ---\r\n");
 }
 
 // Read voltages from UART into v1 and v2.
