@@ -29,7 +29,9 @@ float PIDController::pidController(float MV) {
     // Combine terms
     float raw_output = (float)(pterm + Last_iterm + dterm);
 
-    return raw_output;
+    // Invert the controller output sign so high controller demand
+    // produces a larger analog output (flips behavior).
+    return -raw_output;
 }
 
 void PIDController::updateConstants(int p, int i, int d) {
