@@ -13,11 +13,13 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="ArduinoController.lvclass" Type="LVClass" URL="../ArduinoController/ArduinoController.lvclass"/>
+		<Item Name="ControllerModeEnum.ctl" Type="VI" URL="../ControllerModeEnum.ctl"/>
 		<Item Name="LabjacksController.lvclass" Type="LVClass" URL="../LabjacksController/LabjacksController.lvclass"/>
 		<Item Name="labjacksInputEnum.ctl" Type="VI" URL="../labjacksInputEnum.ctl"/>
 		<Item Name="modesEnum.ctl" Type="VI" URL="../modesEnum.ctl"/>
 		<Item Name="Needle Valve labVIEW Code-Original.vi" Type="VI" URL="../Needle Valve labVIEW Code-Original.vi"/>
 		<Item Name="Needle Valve labVIEW Code.vi" Type="VI" URL="../Needle Valve labVIEW Code.vi"/>
+		<Item Name="needliestLBV.lvproj.lvclass" Type="LVClass" URL="../needliestLBV.lvproj.lvclass"/>
 		<Item Name="PIDController.lvclass" Type="LVClass" URL="../PIDController/PIDController.lvclass"/>
 		<Item Name="spikeController.lvclass" Type="LVClass" URL="../spikeController/spikeController.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies"/>

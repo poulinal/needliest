@@ -8,5 +8,6 @@
         "queue": "cpp",
         "stack": "cpp",
         "random": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/Users/alexpoulin/Downloads/git/needliest/cpp"
 }
