@@ -13,15 +13,19 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="ArduinoController.lvclass" Type="LVClass" URL="../ArduinoController/ArduinoController.lvclass"/>
+		<Item Name="Ball Valve labVIEW Code.vi" Type="VI" URL="../Ball Valve labVIEW Code.vi"/>
+		<Item Name="closeVisaMaybe.vi" Type="VI" URL="../utilities/closeVisaMaybe.vi"/>
 		<Item Name="ControllerModeEnum.ctl" Type="VI" URL="../ControllerModeEnum.ctl"/>
 		<Item Name="LabjacksController.lvclass" Type="LVClass" URL="../LabjacksController/LabjacksController.lvclass"/>
 		<Item Name="labjacksInputEnum.ctl" Type="VI" URL="../labjacksInputEnum.ctl"/>
+		<Item Name="labjacksModeEnum.ctl" Type="VI" URL="../labjacksModeEnum.ctl"/>
 		<Item Name="modesEnum.ctl" Type="VI" URL="../modesEnum.ctl"/>
 		<Item Name="Needle Valve labVIEW Code-Original.vi" Type="VI" URL="../Needle Valve labVIEW Code-Original.vi"/>
-		<Item Name="Needle Valve labVIEW Code.vi" Type="VI" URL="../Needle Valve labVIEW Code.vi"/>
 		<Item Name="needliestLBV.lvproj.lvclass" Type="LVClass" URL="../needliestLBV.lvproj.lvclass"/>
 		<Item Name="PIDController.lvclass" Type="LVClass" URL="../PIDController/PIDController.lvclass"/>
+		<Item Name="readVisaMaybe.vi" Type="VI" URL="../utilities/readVisaMaybe.vi"/>
 		<Item Name="spikeController.lvclass" Type="LVClass" URL="../spikeController/spikeController.lvclass"/>
+		<Item Name="writeVisaMaybe.vi" Type="VI" URL="../utilities/writeVisaMaybe.vi"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
